@@ -1,0 +1,88 @@
+---
+title: "Final Project"
+author: "Dongsoo Lee"
+output: html_document
+---
+
+```{r, here-i-am, include = FALSE}
+here::i_am("report.Rmd")
+```
+
+## Introduction
+
+The "BostonHousing" dataset will be used in this analysis. This dataset consists of 506 samples and 14 covariates. The objective of this analysis is to predict the median value of house prices in Boston using several independent variables. Thus, the target variable is the median value of house prices, which will be explained by the other 13 covariates.
+
+First, I will perform a univariate analysis between the target variable and each of the other variables. Based on this analysis, only the significant variables will be included in a multivariate linear regression. A stepwise variable selection method will be applied to the multivariate linear regression, and the resulting model will be the final model. The final model's results will be summarized with tables and figures.
+
+### Definition of each variable
+* 1. CRIM: per capita crime rate by town
+* 2. ZN: proportion of residential land zoned for lots over 25,000 sq.ft.
+* 3. INDUS: proportion of non-retail business acres per town
+* 4. CHAS: Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)
+* 5. NOX: nitric oxides concentration (parts per 10 million)
+* 6. RM: average number of rooms per dwelling
+* 7. AGE: proportion of owner-occupied units built prior to 1940
+* 8. DIS: weighted distances to five Boston employment centres
+* 9. RAD: index of accessibility to radial highways
+* 10. TAX: full value property tax rate per $10,000
+* 11. PTRATIO: pupil teacher ratio by town
+* 12. Black: 1000(Bk 0.63)^2 where Bk is the proportion of blacks by town
+* 13. LSTAT: % lower status of the population
+* 14. MEDV: Median value of owner occupied homes in $1000's
+
+## Packages & data load
+```{r, library setting, warning=FALSE}
+library(gtsummary)
+library(labelled)
+library(gt)
+library(broom)
+library(ggplot2)
+```
+
+```{r, load-random-numbers, include = FALSE}
+uni_table <- readRDS(
+  #! fill in details
+  here::here("output/uni_table.rds")
+)
+multi_table <- readRDS(
+  #! fill in details
+  here::here("output/multi_table.rds")
+)
+coeff1 <- readRDS(
+  #! fill in details
+  here::here("output/co_eff1.rds")
+)
+coeff2 <- readRDS(
+  #! fill in details
+  here::here("output/co_eff2.rds")
+)
+
+
+```
+
+## Univariate-analysis
+```{r, univariate-analysis}
+uni_table
+```
+
+## Multivariate-analysis
+
+```{r, multivariate-results}
+multi_table
+```
+
+## Visualization of the estimate for each variable.
+
+```{r, the figure for variables}
+#| fig.align = "center",
+#| out.width = "700px"
+coeff1
+```
+
+
+
+```{r, the figure for variables (2)}
+#| fig.align = "center",
+#| out.width = "700px"
+coeff2
+```
