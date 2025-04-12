@@ -6,6 +6,9 @@
 
 
 ## Analysis process
+
+**IMPORTANT:** You can install the project environment by running `make install`.
+
 1. Run `code/01_make_uni_table.R`
     - This script generates the univariate regression analysis table (output: `uni_table.rds`).
 2. Run `code/01_make_multi_table.R`
