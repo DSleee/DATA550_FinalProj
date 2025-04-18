@@ -14,7 +14,7 @@ output/co_eff1.rds output/co_eff2.rds: code/02_make_figure.R output/step_result.
 
 .PHONY: install
 install:
-Rscript -e "renv::restore(prompt = FALSE)"
+	Rscript -e "renv::restore(prompt = FALSE)"
 
 
 
