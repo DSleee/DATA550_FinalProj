@@ -15,6 +15,7 @@ output/co_eff1.rds output/co_eff2.rds: code/02_make_figure.R output/step_result.
 .PHONY: install
 install:
 	Rscript -e "renv::restore(prompt = FALSE)"
+	Rscript depend_package.R
 
 
 PROJECTFILES = report.Rmd code/01_make_multi_table.R code/01_make_uni_table.R code/02_make_figure.R code/03_make_report.R Makefile Boston.csv
