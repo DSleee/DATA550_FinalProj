@@ -28,4 +28,4 @@ project_image: Dockerfile	$(PROJECTFILES)	$(RENVFILES)
 report_win:
 	docker run -v /"$$(pwd)/report":/project/report dslee95/project_image
 report_mac:
-        docker run -v "$$(pwd)/report":/project/report dslee95/project_image
+	docker run -v "$$(pwd)/report":/project/report dslee95/project_image
