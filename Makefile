@@ -25,6 +25,7 @@ project_image: Dockerfile	$(PROJECTFILES)	$(RENVFILES)
 	docker build -t dslee95/project_image .
 	touch $@
 
-report_gen:
+report_win:
 	docker run -v /"$$(pwd)/report":/project/report dslee95/project_image
-
+report_mac:
+        docker run -v "$$(pwd)/report":/project/report dslee95/project_image
