@@ -17,4 +17,13 @@ install:
 	Rscript -e "renv::restore(prompt = FALSE)"
 
 
+PROJECTFILES = report.Rmd code/01_make_multi_table.R code/01_make_uni_table.R code/02_make_figure.R code/03_make_report.R Makefile Boston.csv
+REVFILES = renv.lock renv/activate.R renv/settings.json .Rprofile
+
+project_image: Dockerfile	$(PROJECTFILES)	$(RENVFILES)
+	docker build -t dslee95/project_image .
+	touch $@
+
+report_gen:
+	docker run -v /"$$(pwd)/report":/project/report dslee95/project_image
 
